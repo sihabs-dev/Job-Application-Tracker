@@ -37,13 +37,23 @@ function toggleStyle(id) {
   selected.classList.add("bg-blue-400", "text-white");
 }
 
-
-
 let mainSection = document.getElementById("main-section");
 mainSection.addEventListener("click", function (event) {
   if (event.target.classList.contains("interview-btn")) {
-      let cardDiv = event.target.closest('.card');
-      
-      
+    let cardDiv = event.target.closest(".card");
+    let cardHeading = cardDiv.querySelector(".heading").textContent;
+    let cardInfo = cardDiv.querySelector(".info").textContent;
+    let cardSalary = cardDiv.querySelector(".salary").textContent;
+    let cardStatus = cardDiv.querySelector(".status").textContent;
+    let cardPara = cardDiv.querySelector(".para").textContent;
+
+    let cardInfomation = {
+      cardHeading,
+      cardInfo,
+      cardSalary,
+      cardStatus,
+      cardPara,
+      };
+      console.log(cardInfomation)
   }
 });
