@@ -16,21 +16,22 @@
       <div class="grid grid-cols-1 sm:grid-cols-3 gap-5 mb-7">
         <!--  -->
         <div class="total text-2xl font-medium p-5 shadow-sm rounded-md">
-          Total
-          <p>0</p>
+          <p>Total</p>
+
+          <p id="total">0</p>
         </div>
         <div class="interview text-2xl font-medium p-5 shadow-sm rounded-md">
-          Interview
-          <p class="text-green-400">0</p>
+          <p>Interview</p>
+          <p id="interview" class="text-green-400">0</p>
         </div>
         <div class="rejected text-2xl font-medium p-5 shadow-sm rounded-md">
-          Rejected
-          <p class="text-red-400">0</p>
+          <p>Rejected</p>
+          <p id="rejected" class="text-red-400">0</p>
         </div>
       </div>
     </header>
 
-    <main class="container mx-auto">
+    <main id="main-section" class="container mx-auto">
       <div class="flex justify-between my-5">
         <h3 class="text-2xl font-bold">Available Jobs</h3>
         <p>8 Jobs</p>
@@ -38,18 +39,21 @@
       <!-- trogle filter btn -->
       <section class="space-x-1.5">
         <button
+          onclick="toggleStyle('all-filter-btn')"
           id="all-filter-btn"
-          class="bg-blue-400 text-white px-8 py-3 rounded-sm"
+          class="bg-blue-400 text-white px-8 py-3 rounded-sm shadow-sm"
         >
           All
         </button>
         <button
+          onclick="toggleStyle('interview-filter-btn')"
           id="interview-filter-btn"
           class="px-8 py-3 text-gray-600 rounded-sm shadow-sm"
         >
           Interview
         </button>
         <button
+          onclick="toggleStyle('rejected-filter-btn')"
           id="rejected-filter-btn"
           class="px-8 py-3 text-gray-600 rounded-sm shadow-sm"
         >
@@ -57,14 +61,14 @@
         </button>
       </section>
       <!-- filter section -->
-      <section></section>
+      <section id="filter-section"></section>
       <!-- all cards -->
       <section>
         <div id="allCards" class="my-7 space-y-7">
           <!-- card-1 -->
-          <div class="card space-y-3 p-5 shadow-sm rounded-md">
+          <div class="card space-y-3 p-5 shadow-sm rounded-md relative">
             <div>
-              <h2 class="text-2xl font-bold">Mobile First Corp</h2>
+              <h2 class="mobile text-2xl font-bold">Mobile First Corp</h2>
               <p class="text-gray-500">React Native Developer</p>
             </div>
             <div>
@@ -73,7 +77,7 @@
               </p>
             </div>
             <div class="px-3.5 py-2 bg-black/15 inline-block rounded-md">
-              <p>NOT APPLIED</p>
+              <p class="is-apply">NOT APPLIED</p>
             </div>
             <div>
               <p class="text-gray-700">
@@ -84,21 +88,26 @@
             <!-- interview and rejected btn -->
             <div>
               <button
-                id="interview-btn"
-                class="text-green-500 px-3 py-1.5 border-2 border-green-500 rounded-sm"
+                
+                class="interview-btn text-green-500 px-3 py-1.5 border-2 border-green-500 rounded-sm"
               >
                 INTERVIEW
               </button>
               <button
-                id="rejected-btn"
-                class="text-red-500 px-3 py-1.5 border-2 border-red-500 rounded-sm"
+               
+                class="rejected-btn text-red-500 px-3 py-1.5 border-2 border-red-500 rounded-sm"
               >
                 REJECTED
               </button>
             </div>
+            <div class="absolute top-7 right-7">
+              <button id="delete-btn">
+                <img src="./images/delete.png" alt="" />
+              </button>
+            </div>
           </div>
           <!-- card-2 -->
-          <div class="card space-y-3 p-5 shadow-sm rounded-md">
+          <div class="card space-y-3 p-5 shadow-sm rounded-md relative">
             <div>
               <h2 class="text-2xl font-bold">WebFlow Agency</h2>
               <p class="text-gray-500">Web Designer & Developer</p>
@@ -119,21 +128,26 @@
             </div>
             <div>
               <button
-                id="interview-btn"
-                class="text-green-500 px-3 py-1.5 border-2 border-green-500 rounded-sm"
+          
+                class="interview-btn text-green-500 px-3 py-1.5 border-2 border-green-500 rounded-sm"
               >
                 INTERVIEW
               </button>
               <button
-                id="rejected-btn"
-                class="text-red-500 px-3 py-1.5 border-2 border-red-500 rounded-sm"
+               
+                class="rejected-btn text-red-500 px-3 py-1.5 border-2 border-red-500 rounded-sm"
               >
                 REJECTED
               </button>
             </div>
+            <div class="absolute top-7 right-7">
+              <button id="delete-btn">
+                <img src="./images/delete.png" alt="" />
+              </button>
+            </div>
           </div>
           <!-- card-3 -->
-          <div class="card space-y-3 p-5 shadow-sm rounded-md">
+          <div class="card space-y-3 p-5 shadow-sm rounded-md relative">
             <div>
               <h2 class="text-2xl font-bold">DataViz Solutions</h2>
               <p class="text-gray-500">Data Visualization Specialist</p>
@@ -154,21 +168,26 @@
             </div>
             <div>
               <button
-                id="interview-btn"
-                class="text-green-500 px-3 py-1.5 border-2 border-green-500 rounded-sm"
+
+                class="interview-btn text-green-500 px-3 py-1.5 border-2 border-green-500 rounded-sm"
               >
                 INTERVIEW
               </button>
               <button
-                id="rejected-btn"
-                class="text-red-500 px-3 py-1.5 border-2 border-red-500 rounded-sm"
+          
+                class="rejected-btn text-red-500 px-3 py-1.5 border-2 border-red-500 rounded-sm"
               >
                 REJECTED
               </button>
             </div>
+            <div class="absolute top-7 right-7">
+              <button id="delete-btn">
+                <img src="./images/delete.png" alt="" />
+              </button>
+            </div>
           </div>
           <!-- card-4 -->
-          <div class="card space-y-3 p-5 shadow-sm rounded-md">
+          <div class="card space-y-3 p-5 shadow-sm rounded-md relative">
             <div>
               <h2 class="text-2xl font-bold">Innovation Labs</h2>
               <p class="text-gray-500">UI/UX Engineer</p>
@@ -190,21 +209,26 @@
             </div>
             <div>
               <button
-                id="interview-btn"
-                class="text-green-500 px-3 py-1.5 border-2 border-green-500 rounded-sm"
+               
+                class="interview-btn text-green-500 px-3 py-1.5 border-2 border-green-500 rounded-sm"
               >
                 INTERVIEW
               </button>
               <button
-                id="rejected-btn"
-                class="text-red-500 px-3 py-1.5 border-2 border-red-500 rounded-sm"
+         
+                class="rejected-btn text-red-500 px-3 py-1.5 border-2 border-red-500 rounded-sm"
               >
                 REJECTED
               </button>
             </div>
+            <div class="absolute top-7 right-7">
+              <button id="delete-btn">
+                <img src="./images/delete.png" alt="" />
+              </button>
+            </div>
           </div>
           <!-- card-5 -->
-          <div class="card space-y-3 p-5 shadow-sm rounded-md">
+          <div class="card space-y-3 p-5 shadow-sm rounded-md relative">
             <div>
               <h2 class="text-2xl font-bold">MegaCorp Solutions</h2>
               <p class="text-gray-500">JavaScript Developer</p>
@@ -226,21 +250,26 @@
             </div>
             <div>
               <button
-                id="interview-btn"
-                class="text-green-500 px-3 py-1.5 border-2 border-green-500 rounded-sm"
+               
+                class="interview-btn text-green-500 px-3 py-1.5 border-2 border-green-500 rounded-sm"
               >
                 INTERVIEW
               </button>
               <button
-                id="rejected-btn"
-                class="text-red-500 px-3 py-1.5 border-2 border-red-500 rounded-sm"
+     
+                class="rejected-btn text-red-500 px-3 py-1.5 border-2 border-red-500 rounded-sm"
               >
                 REJECTED
               </button>
             </div>
+            <div class="absolute top-7 right-7">
+              <button id="delete-btn">
+                <img src="./images/delete.png" alt="" />
+              </button>
+            </div>
           </div>
           <!-- card-6 -->
-          <div class="card space-y-3 p-5 shadow-sm rounded-md">
+          <div class="card space-y-3 p-5 shadow-sm rounded-md relative">
             <div>
               <h2 class="text-2xl font-bold">CloudFirst Inc</h2>
               <p class="text-gray-500">Backend Developer</p>
@@ -261,21 +290,26 @@
             </div>
             <div>
               <button
-                id="interview-btn"
-                class="text-green-500 px-3 py-1.5 border-2 border-green-500 rounded-sm"
+           
+                class="interview-btn text-green-500 px-3 py-1.5 border-2 border-green-500 rounded-sm"
               >
                 INTERVIEW
               </button>
               <button
-                id="rejected-btn"
-                class="text-red-500 px-3 py-1.5 border-2 border-red-500 rounded-sm"
+               
+                class="rejected-btn text-red-500 px-3 py-1.5 border-2 border-red-500 rounded-sm"
               >
                 REJECTED
               </button>
             </div>
+            <div class="absolute top-7 right-7">
+              <button id="delete-btn">
+                <img src="./images/delete.png" alt="" />
+              </button>
+            </div>
           </div>
           <!-- card-7 -->
-          <div class="card space-y-3 p-5 shadow-sm rounded-md">
+          <div class="card space-y-3 p-5 shadow-sm rounded-md relative">
             <div>
               <h2 class="text-2xl font-bold">StartupXYZ</h2>
               <p class="text-gray-500">Full Stack Engineer</p>
@@ -297,21 +331,26 @@
             </div>
             <div>
               <button
-                id="interview-btn"
-                class="text-green-500 px-3 py-1.5 border-2 border-green-500 rounded-sm"
+        
+                class="interview-btn text-green-500 px-3 py-1.5 border-2 border-green-500 rounded-sm"
               >
                 INTERVIEW
               </button>
               <button
-                id="rejected-btn"
-                class="text-red-500 px-3 py-1.5 border-2 border-red-500 rounded-sm"
+               
+                class=" rejected-btn text-red-500 px-3 py-1.5 border-2 border-red-500 rounded-sm"
               >
                 REJECTED
               </button>
             </div>
+            <div class="absolute top-7 right-7">
+              <button id="delete-btn">
+                <img src="./images/delete.png" alt="" />
+              </button>
+            </div>
           </div>
           <!-- card-8 -->
-          <div class="card space-y-3 p-5 shadow-sm rounded-md">
+          <div class="card space-y-3 p-5 shadow-sm rounded-md relative">
             <div>
               <h2 class="text-2xl font-bold">TechCorp Industries</h2>
               <p class="text-gray-500">Senior Frontend Developer</p>
@@ -326,26 +365,35 @@
             </div>
             <div>
               <p class="text-gray-700">
-                We are looking for an experienced Frontend Developer to build scalable web applications using React and TypeScript. You will work with a talented team on cutting-edge projects.
+                We are looking for an experienced Frontend Developer to build
+                scalable web applications using React and TypeScript. You will
+                work with a talented team on cutting-edge projects.
               </p>
             </div>
             <div>
               <button
-                id="interview-btn"
-                class="text-green-500 px-3 py-1.5 border-2 border-green-500 rounded-sm"
+               
+                class="interview-btn text-green-500 px-3 py-1.5 border-2 border-green-500 rounded-sm"
               >
                 INTERVIEW
               </button>
               <button
-                id="rejected-btn"
-                class="text-red-500 px-3 py-1.5 border-2 border-red-500 rounded-sm"
+             
+                class="rejected-btn text-red-500 px-3 py-1.5 border-2 border-red-500 rounded-sm"
               >
                 REJECTED
+              </button>
+            </div>
+            <div class="absolute top-7 right-7">
+              <button id="delete-btn">
+                <img src="./images/delete.png" alt="" />
               </button>
             </div>
           </div>
         </div>
       </section>
     </main>
+
+    <script src="./script.js"></script>
   </body>
 </html>
