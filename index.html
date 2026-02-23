@@ -1,11 +1,68 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Job Application Tracker</title>
-</head>
-<body>
-    <h1>hello</h1>
-</body>
+    <!-- tailwind cdn -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <!-- favicon -->
+    <link rel="shortcut icon" href="./images/resume.png" type="image/x-icon" />
+  </head>
+  <body>
+    <header class="container mx-auto border-b-2 border-black/10">
+      <h1 class="text-4xl font-black my-5">Job Application Tracker</h1>
+      <!-- count -->
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-5 mb-7">
+        <!--  -->
+        <div class="total text-2xl font-medium p-5 shadow-sm rounded-md">
+          Total
+          <p>0</p>
+        </div>
+        <div class="interview text-2xl font-medium p-5 shadow-sm rounded-md">
+          Interview
+          <p class="text-green-400">0</p>
+        </div>
+        <div class="rejected text-2xl font-medium p-5 shadow-sm rounded-md">
+          Rejected
+          <p class="text-red-400">0</p>
+        </div>
+      </div>
+    </header>
+
+    <main class="container mx-auto">
+      <div class="flex justify-between my-5">
+        <h3 class="text-2xl font-bold">Available Jobs</h3>
+        <p>8 Jobs</p>
+      </div>
+      <!-- trogle filter btn -->
+      <section class="space-x-1.5">
+        <button
+          id="all-filter-btn"
+          class="bg-blue-400 text-white px-8 py-3 rounded-sm"
+        >
+          All
+        </button>
+        <button
+          id="interview-filter-btn"
+          class="px-8 py-3 text-gray-600 rounded-sm shadow-sm"
+        >
+          Interview
+        </button>
+        <button
+          id="rejected-filter-btn"
+          class="px-8 py-3 text-gray-600 rounded-sm shadow-sm"
+        >
+          Rejected
+        </button>
+      </section>
+      <!-- all cards -->
+       <section>
+        <div id="allCards">
+            <!-- card-1 -->
+             
+        </div>
+       </section>
+    </main>
+  </body>
 </html>
