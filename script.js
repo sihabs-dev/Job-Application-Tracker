@@ -124,6 +124,10 @@ mainSection.addEventListener("click", function (event) {
     }
 
     calculateCard();
+  } else if (event.target.classList.contains("delete-btn")) {
+    //   console.log(event.target);
+      let clo = event.target.closest('.card');
+      clo.classList.add('hidden')
   }
 });
 
@@ -236,3 +240,6 @@ function renderRejectedCard() {
     getFilterSection.appendChild(createNewDiv);
   }
 }
+
+
+
