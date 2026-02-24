@@ -52,6 +52,7 @@ function toggleStyle(id) {
   } else if (currentStatus == "all-filter-btn") {
     allCardSection.classList.remove("hidden");
     getFilterSection.classList.add("hidden");
+    noJobAvailableSection.classList.add("hidden");
   } else if (currentStatus == "rejected-filter-btn") {
     allCardSection.classList.add("hidden");
     getFilterSection.classList.remove("hidden");
@@ -127,11 +128,13 @@ mainSection.addEventListener("click", function (event) {
 });
 
 function renderInterviewCard() {
-    getFilterSection.innerHTML = "";
-    if (interviewList.length === 0) {
-        noJobAvailableSection.classList.remove('hidden');
-        return;
-    }
+  getFilterSection.innerHTML = "";
+  if (interviewList.length === 0) {
+    noJobAvailableSection.classList.remove("hidden");
+    return;
+  } else {
+    noJobAvailableSection.classList.add("hidden");
+  }
 
   for (const makeCard of interviewList) {
     let createNewDiv = document.createElement("div");
@@ -180,11 +183,13 @@ function renderInterviewCard() {
 }
 
 function renderRejectedCard() {
-    getFilterSection.innerHTML = "";
-    if (rejectedList.length === 0) {
-        noJobAvailableSection.classList.remove('hidden');
-        return;
-    }
+  getFilterSection.innerHTML = "";
+  if (rejectedList.length === 0) {
+    noJobAvailableSection.classList.remove("hidden");
+    return;
+  } else {
+    noJobAvailableSection.classList.add("hidden");
+  }
 
   for (const makeCard of rejectedList) {
     let createNewDiv = document.createElement("div");
@@ -231,5 +236,3 @@ function renderRejectedCard() {
     getFilterSection.appendChild(createNewDiv);
   }
 }
-
-
