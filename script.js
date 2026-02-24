@@ -25,6 +25,9 @@ function calculateCard() {
 }
 calculateCard();
 
+let noJobAvailableSection = document.getElementById("no-job-section");
+// console.log(noJobAvailableSection);
+
 let allFilterBtn = document.getElementById("all-filter-btn");
 let interviewFilterBtn = document.getElementById("interview-filter-btn");
 let rejectedFilterBtn = document.getElementById("rejected-filter-btn");
@@ -51,8 +54,8 @@ function toggleStyle(id) {
     getFilterSection.classList.add("hidden");
   } else if (currentStatus == "rejected-filter-btn") {
     allCardSection.classList.add("hidden");
-    renderRejectedCard();
     getFilterSection.classList.remove("hidden");
+    renderRejectedCard();
   }
 }
 
@@ -124,7 +127,11 @@ mainSection.addEventListener("click", function (event) {
 });
 
 function renderInterviewCard() {
-  getFilterSection.innerHTML = "";
+    getFilterSection.innerHTML = "";
+    if (interviewList.length === 0) {
+        noJobAvailableSection.classList.remove('hidden');
+        return;
+    }
 
   for (const makeCard of interviewList) {
     let createNewDiv = document.createElement("div");
@@ -173,7 +180,11 @@ function renderInterviewCard() {
 }
 
 function renderRejectedCard() {
-  getFilterSection.innerHTML = "";
+    getFilterSection.innerHTML = "";
+    if (rejectedList.length === 0) {
+        noJobAvailableSection.classList.remove('hidden');
+        return;
+    }
 
   for (const makeCard of rejectedList) {
     let createNewDiv = document.createElement("div");
@@ -220,3 +231,5 @@ function renderRejectedCard() {
     getFilterSection.appendChild(createNewDiv);
   }
 }
+
+
