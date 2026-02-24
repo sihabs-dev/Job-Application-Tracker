@@ -10,23 +10,26 @@ let interviewCount = document.getElementById("interview");
 let rejectedCount = document.getElementById("rejected");
 let allCards = document.getElementById("allCards");
 let allCardSection = document.getElementById("all-card-section");
+let allCard = document.getElementsByClassName("card");
 
 let interviewList = [];
 let rejectedList = [];
 let currentStatus = "all";
 
+let subCount = document.getElementById("sub-count");
+console.log(subCount.parentElement);
+
+
 function calculateCard() {
   interviewCount.innerText = interviewList.length;
   rejectedCount.innerText = rejectedList.length;
   totalCount.innerText =
-    allCards.children.length -
-    interviewCount.innerText -
-    rejectedCount.innerText;
+    allCard.length - interviewCount.innerText - rejectedCount.innerText;
 }
 calculateCard();
 
 let noJobAvailableSection = document.getElementById("no-job-section");
-// console.log(noJobAvailableSection);
+
 
 let allFilterBtn = document.getElementById("all-filter-btn");
 let interviewFilterBtn = document.getElementById("interview-filter-btn");
@@ -49,14 +52,21 @@ function toggleStyle(id) {
     allCardSection.classList.add("hidden");
     getFilterSection.classList.remove("hidden");
     renderInterviewCard();
+    subCount.parentElement.classList.remove("hidden");
+    subCount.innerText = interviewList.length;
+    calculateCard();
   } else if (currentStatus == "all-filter-btn") {
     allCardSection.classList.remove("hidden");
     getFilterSection.classList.add("hidden");
     noJobAvailableSection.classList.add("hidden");
+    subCount.parentElement.classList.add("hidden");
   } else if (currentStatus == "rejected-filter-btn") {
     allCardSection.classList.add("hidden");
     getFilterSection.classList.remove("hidden");
     renderRejectedCard();
+    subCount.parentElement.classList.remove("hidden");
+    subCount.innerText = rejectedList.length;
+    calculateCard();
   }
 }
 
@@ -78,7 +88,7 @@ mainSection.addEventListener("click", function (event) {
       cardStatus,
       cardPara,
     };
-    // console.log(cardInfomation);
+
     let isExit = interviewList.find(
       (item) => item.cardHeading == cardInfomation.cardHeading,
     );
@@ -125,9 +135,8 @@ mainSection.addEventListener("click", function (event) {
 
     calculateCard();
   } else if (event.target.classList.contains("delete-btn")) {
-    //   console.log(event.target);
-      let clo = event.target.closest('.card');
-      clo.classList.add('hidden')
+    let deleteCard = event.target.closest(".card");
+    deleteCard.classList.add("hidden");
   }
 });
 
@@ -177,9 +186,9 @@ function renderInterviewCard() {
               </button>
             </div>
             <div class="absolute top-7 right-7">
-              <button id="delete-btn">
-                <img src="./images/delete.png" alt="" />
-              </button>
+              <a>
+                <img class='delete-btn' src="./images/delete.png" alt="" />
+              </a>
             </div>
     `;
     getFilterSection.appendChild(createNewDiv);
@@ -232,14 +241,12 @@ function renderRejectedCard() {
               </button>
             </div>
             <div class="absolute top-7 right-7">
-              <button id="delete-btn">
-                <img src="./images/delete.png" alt="" />
-              </button>
+              <a>
+                <img class= 'delete-btn' src="./images/delete.png" alt="" />
+              </a>
             </div>
     `;
     getFilterSection.appendChild(createNewDiv);
   }
 }
-
-
 
